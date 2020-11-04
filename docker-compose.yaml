@@ -1,0 +1,22 @@
+version: "3.3"
+services:
+  captcha-solver:
+    build:
+      context: ./api_container
+    container_name: captcha-solver
+    ports:
+      - 2103:2103
+    command: python3.7 app.py
+    environment:
+      - PORT=2103
+    volumes:
+      - ./utils:/utils/
+      
+  captcha-trainer:
+    build:
+      context: ./train_container
+    container_name: captcha-trainer
+    command: python3.7 train.py
+    volumes:
+      - ./data:/data/
+      - ./utils:/utils/
