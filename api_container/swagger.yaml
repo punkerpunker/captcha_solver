@@ -1,0 +1,33 @@
+openapi: 3.0.0
+info:
+  title: Captcha API
+  description: API Используемое для решения капчи на сайте fssp.gov.ru
+  version: 0.0.1
+
+servers:
+  - url: http://0.0.0.0:1769
+    description: Test server
+
+paths:
+  /solve: 
+    get: 
+      operationId: app.solve 
+      parameters: 
+        - name: image 
+          description: Captcha to solve 
+          in: query
+          schema:
+            type: string
+            format: base64
+          required: true
+      responses:
+        '200':
+          description: Captcha text
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  captcha_text:
+                    type: string
+                    example: пфк53
