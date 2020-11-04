@@ -30,20 +30,20 @@ def get_separate_letters(image):
     return letters
 
 
-def create_train_set(output_folder, markup_files, num_letters):
-    shutil.rmtree(output_folder)
+def create_train_set(output_folder, markup_files):
+    os.mkdir(output_folder)
     counts = {}
     for file in markup_files:
         labels = [x for x in file.split('.png')[0].split('/')[1]]
         image = cv2.imread(file)
         thresh = image_preprocessing(image)
         letters = get_separate_letters(thresh)
-        for letter, label in zip(letters, labels):
-            save_path = os.path.join(output_folder, label) 
-            if not os.path.exists(save_path):
-                os.makedirs(save_path)
-            count = counts.get(label, 1)
-            p = os.path.join(save_path, "{}.png".format(str(count).zfill(6)))
-            cv2.imwrite(p, letter)
-            counts[label] = count + 1
-                
+        if len(letters) == 5:
+            for letter, label in zip(letters, labels):
+                save_path = os.path.join(output_folder, label) 
+                if not os.path.exists(save_path):
+                    os.makedirs(save_path)
+                count = counts.get(label, 1)
+                p = os.path.join(save_path, "{}.png".format(str(count).zfill(6)))
+                cv2.imwrite(p, letter)
+                counts[label] = count + 1

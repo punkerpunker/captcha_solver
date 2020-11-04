@@ -49,4 +49,3 @@ if __name__ == '__main__':
     nn = train_model(LETTER_IMAGES_FOLDER, args.save_path)
     shutil.rmtree(args.save_path)
     nn.save(args.save_path)
-    print("Success")
