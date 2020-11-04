@@ -6,7 +6,7 @@ import os
 from utils.model import NN
 
 
-trained_model_location = 'trained_model'
+trained_model_location = 'model'
 model = NN.load(trained_model_location)
 
 
