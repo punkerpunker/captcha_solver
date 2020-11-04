@@ -38,12 +38,11 @@ def create_train_set(output_folder, markup_files):
         image = cv2.imread(file)
         thresh = image_preprocessing(image)
         letters = get_separate_letters(thresh)
-        if len(letters) == 5:
-            for letter, label in zip(letters, labels):
-                save_path = os.path.join(output_folder, label) 
-                if not os.path.exists(save_path):
-                    os.makedirs(save_path)
-                count = counts.get(label, 1)
-                p = os.path.join(save_path, "{}.png".format(str(count).zfill(6)))
-                cv2.imwrite(p, letter)
-                counts[label] = count + 1
+        for letter, label in zip(letters, labels):
+            save_path = os.path.join(output_folder, label) 
+            if not os.path.exists(save_path):
+                os.makedirs(save_path)
+            count = counts.get(label, 1)
+            p = os.path.join(save_path, "{}.png".format(str(count).zfill(6)))
+            cv2.imwrite(p, letter)
+            counts[label] = count + 1

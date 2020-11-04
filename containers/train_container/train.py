@@ -47,5 +47,4 @@ if __name__ == '__main__':
     markup_files = [os.path.join(args.train_set_location, x) for x in os.listdir(args.train_set_location)]
     create_train_set(LETTER_IMAGES_FOLDER, markup_files)
     nn = train_model(LETTER_IMAGES_FOLDER, args.save_path)
-    shutil.rmtree(args.save_path)
     nn.save(args.save_path)
