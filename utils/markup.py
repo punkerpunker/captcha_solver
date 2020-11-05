@@ -2,6 +2,7 @@ import os
 import cv2
 import random
 import imutils
+import time
 import shutil
 import numpy as np
 from utils.utils import resize_to_fit, image_preprocessing
@@ -34,7 +35,7 @@ def create_train_set(output_folder, markup_files):
     os.mkdir(output_folder)
     counts = {}
     for file in markup_files:
-        labels = [x for x in file.split('.png')[0].split('/')[1]]
+        labels = [x for x in file.split('.png')[0].split('/')[-1]]
         image = cv2.imread(file)
         thresh = image_preprocessing(image)
         letters = get_separate_letters(thresh)
