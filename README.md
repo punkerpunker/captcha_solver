@@ -32,3 +32,23 @@ resp.json()
 Full example can be founded in test_app.ipynb:
 
 ![alt text](https://github.com/punkerpunker/captcha_solver/blob/master/example.jpg)
+
+## Train model on external data
+
+Model training is pretty simple. 
+You need to create (or find) markup and store it in __data/captcha_train__ folder. Each image must be in a .png format and have its solution written in name.
+
+After you have your markup in __data/captcha_train__, run:
+
+```
+docker-compose up --build captcha-trainer
+```
+
+After its done, your model will be located in __model__ folder.
+Then just run API container as usual:
+
+```
+docker-compose up -d --build captcha-solver
+```
+
+And then you can use Captcha Solver with model trained on your training dataset. 
