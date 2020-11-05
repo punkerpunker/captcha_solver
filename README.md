@@ -1,5 +1,5 @@
-# Captcha Solver
-This module built to simplify the process of training NN to solve text captcha. 
+# Captcha Solver 
+This module built to simplify the process of training NN to solve text captcha. (Cyrillic captcha is also available)
 
 ## Using of pre-existing model for captcha from fssp.gov.ru
 
