@@ -10,9 +10,10 @@ git clone git@github.com:punkerpunker/captcha_solver.git
 cd captcha_solver
 docker-compose up -d --build captcha-solver
 ```
-This command registers api on 2103 port.
+This command registers API on port 2103.
 
-Model works with images in string base64 format. You can pass image to API as a query argument with example below:
+Model works with images in base64 format. You can pass an image to API in a query argument. 
+Example:
 ```python
 import requests
 from matplotlib import pyplot as plt
