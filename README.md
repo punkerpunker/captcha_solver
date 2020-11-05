@@ -36,7 +36,7 @@ Full example can be founded in test_app.ipynb:
 ## Train model on external data
 
 Model training is pretty simple. 
-You need to create (or find) markup and store it in __data/captcha_train__ folder. Each image must be in a .png format and have its solution written in name.
+You need to create (or find) markup and store it in __data/captcha_train__ folder. Each image must be in a __.png__ format and have its __solution written in name__.
 
 After you have your markup in __data/captcha_train__, run:
 
